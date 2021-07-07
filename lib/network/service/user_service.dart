@@ -9,11 +9,10 @@ class UserService {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     String? jwt = prefs.getString('jwt');
-    print("Ini Email dan Password : " + jwt!);
     String apiUrl = 'http://192.168.11.210:8080/api/user/read.php';
     final response = await http.post(
       Uri.parse(apiUrl),
-      body: jsonEncode(<String, String>{'jwt': jwt}),
+      body: jsonEncode(<String, String>{'jwt': jwt!}),
     );
 
     print(response.body);
@@ -23,6 +22,24 @@ class UserService {
     user.userId = int.parse(data['response']['data']['user_id']);
     user.username = data['response']['data']['username'];
     user.name = data['response']['data']['name'];
+    user.pictureUrl = data['response']['data']['picture_url'];
     return user;
+  }
+
+  static Future<bool> updateUserPicture(String url) async {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? jwt = prefs.getString('jwt');
+    String apiUrl = 'http://192.168.11.210:8080/api/user/updateUserPhoto.php';
+    final response = await http.post(
+      Uri.parse(apiUrl),
+      body: jsonEncode(<String, String>{'jwt': jwt!, 'picture_url': url}),
+    );
+
+    print(response.body);
+
+    if(response.statusCode == 200 ){
+      return true;
+    }
+      return false;
   }
 }
