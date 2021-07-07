@@ -14,6 +14,7 @@ class Body extends StatelessWidget {
             image: "assets/images/pic.png",
             name: "Jhon Doe",
             email: "Jhondoe01@gmail.com",
+            openCam: () {},
           ),
           SizedBox(height: SizeConfig.defaultSize! * 2), //20
           ProfileMenuItem(

@@ -4,13 +4,17 @@ import '../../../constants.dart';
 import '../../../size_config.dart';
 
 class Info extends StatelessWidget {
+  
+
   const Info({
     Key? key,
     this.name,
     this.email,
     this.image,
+    required this.openCam
   }) : super(key: key);
   final String? name, email, image;
+  final Function() openCam;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +46,7 @@ class Info extends StatelessWidget {
                     ),
                     image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage(image!),
+                      image: NetworkImage(image!),
                     ),
                   ),
                 ),
@@ -63,7 +67,18 @@ class Info extends StatelessWidget {
                 )
               ],
             ),
-          )
+          ),
+          Positioned(
+            bottom: 40,
+            left: 120,
+            child: TextButton(
+              child: Icon(
+                Icons.add_a_photo,
+                size: 20,
+              ),
+              onPressed: openCam,
+            ),
+          ),
         ],
       ),
     );

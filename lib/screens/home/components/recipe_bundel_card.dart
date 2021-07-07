@@ -1,27 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:recipe_app/models/RecipeBundel.dart';
-
+import 'package:recipe_app/models/Recipe.dart';
+import 'dart:math';
 import '../../../size_config.dart';
 
-class RecipeBundelCard extends StatelessWidget {
-  final RecipeBundle? recipeBundle;
+class RecipeCard extends StatelessWidget {
+  final Recipe? recipe;
   final Function? press;
 
-  const RecipeBundelCard({Key? key, this.recipeBundle, this.press})
-      : super(key: key);
+  const RecipeCard({Key? key, this.recipe, this.press}) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
+    Random random = new Random();
+    List colors = [Color(0xFFD82D40), Color(0xFF90AF17), Color(0xFF2DBBD8)];
     double defaultSize = SizeConfig.defaultSize!;
     // Now we dont this Aspect ratio
     return GestureDetector(
       onTap: press!(),
       child: Container(
         decoration: BoxDecoration(
-          color: recipeBundle!.color,
+          color: colors[random.nextInt(3)],
           borderRadius: BorderRadius.circular(defaultSize * 1.8), //18
         ),
-        child: Row( 
+        child: Row(
           children: <Widget>[
             Expanded(
               child: Padding(
@@ -31,7 +33,7 @@ class RecipeBundelCard extends StatelessWidget {
                   children: <Widget>[
                     Spacer(),
                     Text(
-                      recipeBundle!.title!,
+                      recipe!.recipeName,
                       style: TextStyle(
                           fontSize: defaultSize * 2.2, //22
                           color: Colors.white),
@@ -40,7 +42,7 @@ class RecipeBundelCard extends StatelessWidget {
                     ),
                     SizedBox(height: defaultSize * 0.5), // 5
                     Text(
-                      recipeBundle!.description!,
+                      recipe!.description,
                       style: TextStyle(color: Colors.white54),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
@@ -49,13 +51,13 @@ class RecipeBundelCard extends StatelessWidget {
                     buildInfoRow(
                       defaultSize,
                       iconSrc: "assets/icons/pot.svg",
-                      text: "${recipeBundle!.recipes!} Ingredients",
+                      text: "1 Ingredients",
                     ),
                     SizedBox(height: defaultSize * 0.5), //5
                     buildInfoRow(
                       defaultSize,
                       iconSrc: "assets/icons/chef.svg",
-                      text: "${recipeBundle!.chefs!} Steps",
+                      text: "1 Steps",
                     ),
                     Spacer(),
                   ],
@@ -66,7 +68,7 @@ class RecipeBundelCard extends StatelessWidget {
             AspectRatio(
               aspectRatio: 0.71,
               child: Image.asset(
-                recipeBundle!.imageSrc!,
+                recipe!.recipePictureUrl,
                 fit: BoxFit.cover,
                 alignment: Alignment.centerLeft,
               ),

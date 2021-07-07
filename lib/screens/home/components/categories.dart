@@ -12,7 +12,7 @@ class Categories extends StatefulWidget {
 }
 
 class _CategoriesState extends State<Categories> {
-  List<String> categories = ["All", "Indian", "Italian", "Mexican", "Chinese"];
+  List<String> categories = ["Semua", "Gorengan", "Ikan", "Sayur", "Kue"];
   // By default first one is selected
   int selectedIndex = 0;
   @override

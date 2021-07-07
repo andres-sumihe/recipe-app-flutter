@@ -8,9 +8,7 @@ class RecipeService {
     String apiUrl = 'http://192.168.11.210:8080/api/recipe/read.php';
     final response = await http.get(Uri.parse(apiUrl));
 
-    print(response.body);
     final data = jsonDecode(response.body);
-    print(data['records']);
 
     List<Recipe> recipes = [];
     

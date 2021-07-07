@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:recipe_app/components/bottom_nav_bar.dart';
 import 'package:recipe_app/constants.dart';
+import 'package:recipe_app/screens/add_recipe_screens/add_recipe_screen.dart';
 import 'package:recipe_app/screens/home/components/body.dart';
 import 'package:recipe_app/screens/profile/prrofile_screen.dart';
 import 'package:recipe_app/size_config.dart';
@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Body(),
           Center(),
-          Center(),
+          AddRecipeScreen(),
           ProfileScreen(),
         ],
       ),
@@ -74,10 +74,10 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             BottomNavigationBarItem(
-              label: 'List',
+              label: 'Trending',
               backgroundColor: Colors.white,
               icon: SvgPicture.asset(
-                'assets/icons/chef_nav.svg',
+                'assets/icons/hot.svg',
                 color: _currentNavBottomBarIndex == 1
                     ? kPrimaryColor
                     : Color(0xFFD1D4D4),
@@ -88,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
               label: 'Buat',
               backgroundColor: Colors.white,
               icon: SvgPicture.asset(
-                'assets/icons/chef_nav.svg',
+                'assets/icons/camera.svg',
                 color: _currentNavBottomBarIndex == 2
                     ? kPrimaryColor
                     : Color(0xFFD1D4D4),
@@ -96,10 +96,10 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             BottomNavigationBarItem(
-              label: 'Akun',
+              label: 'Profile',
               backgroundColor: Colors.white,
               icon: SvgPicture.asset(
-                'assets/icons/chef_nav.svg',
+                'assets/icons/user.svg',
                 color: _currentNavBottomBarIndex == 3
                     ? kPrimaryColor
                     : Color(0xFFD1D4D4),
