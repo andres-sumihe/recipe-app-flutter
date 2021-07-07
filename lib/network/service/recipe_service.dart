@@ -28,6 +28,6 @@ class RecipeService {
       
     }
 
-    return recipes!;
+    return recipes;
   }
 }
