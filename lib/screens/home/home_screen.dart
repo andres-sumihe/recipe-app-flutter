@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         children: [
           Body(),
-          Center(),
+          // Center(),
           AddRecipeScreen(),
           ProfileScreen(),
         ],
@@ -73,23 +73,23 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 22,
               ),
             ),
-            BottomNavigationBarItem(
-              label: 'Trending',
-              backgroundColor: Colors.white,
-              icon: SvgPicture.asset(
-                'assets/icons/hot.svg',
-                color: _currentNavBottomBarIndex == 1
-                    ? kPrimaryColor
-                    : Color(0xFFD1D4D4),
-                height: 22,
-              ),
-            ),
+            // BottomNavigationBarItem(
+            //   label: 'Trending',
+            //   backgroundColor: Colors.white,
+            //   icon: SvgPicture.asset(
+            //     'assets/icons/hot.svg',
+            //     color: _currentNavBottomBarIndex == 1
+            //         ? kPrimaryColor
+            //         : Color(0xFFD1D4D4),
+            //     height: 22,
+            //   ),
+            // ),
             BottomNavigationBarItem(
               label: 'Buat',
               backgroundColor: Colors.white,
               icon: SvgPicture.asset(
                 'assets/icons/camera.svg',
-                color: _currentNavBottomBarIndex == 2
+                color: _currentNavBottomBarIndex == 1
                     ? kPrimaryColor
                     : Color(0xFFD1D4D4),
                 height: 22,
@@ -100,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
               backgroundColor: Colors.white,
               icon: SvgPicture.asset(
                 'assets/icons/user.svg',
-                color: _currentNavBottomBarIndex == 3
+                color: _currentNavBottomBarIndex == 2
                     ? kPrimaryColor
                     : Color(0xFFD1D4D4),
                 height: 22,
