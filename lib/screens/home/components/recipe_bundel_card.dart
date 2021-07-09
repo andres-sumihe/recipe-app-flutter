@@ -68,7 +68,8 @@ class RecipeCard extends StatelessWidget {
             AspectRatio(
               aspectRatio: 0.71,
               child: Image.asset(
-                recipe!.recipePictureUrl,
+                recipe!.recipePictureUrl != '' 
+                ? recipe!.recipePictureUrl : 'assets/images/best_2020@2x.png' ,
                 fit: BoxFit.cover,
                 alignment: Alignment.centerLeft,
               ),
