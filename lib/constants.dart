@@ -34,3 +34,18 @@ final kBoxDecorationStyle = BoxDecoration(
     ),
   ],
 );
+
+final List<Map<String, dynamic>> categoryList = [
+  {
+    'value': '1',
+    'label': 'Gorengan',
+  },
+  {
+    'value': '2',
+    'label': 'Kue',
+  },
+  {
+    'value': '3',
+    'label': 'Masakan Ikan',
+  },
+];
