@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:cron/cron.dart';
 import 'package:recipe_app/models/NavItem.dart';
 import 'package:recipe_app/provider/auth/login_provider.dart';
+import 'package:recipe_app/provider/recipe/cooking_steps_provider.dart';
+import 'package:recipe_app/provider/recipe/groceries_provider.dart';
 import 'package:recipe_app/provider/user/UserDataProvider.dart';
 import 'package:recipe_app/provider/recipe/recipe_provider.dart';
 import 'package:recipe_app/screens/signin/signin_screen.dart';
@@ -44,6 +46,8 @@ class MyApp extends StatelessWidget {
                 ChangeNotifierProvider(create: (_) => LoginProvider()),
                 ChangeNotifierProvider(create: (_) => UserDataProvider()),
                 ChangeNotifierProvider(create: (_) => RecipeProvider()),
+                ChangeNotifierProvider(create: (_) => GroceriesProvider()),
+                ChangeNotifierProvider(create: (_) => CookingStepProvider()),
               ],
               child: MaterialApp(
                 debugShowCheckedModeBanner: false,
