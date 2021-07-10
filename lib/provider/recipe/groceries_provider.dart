@@ -7,8 +7,8 @@ class GroceriesProvider extends ChangeNotifier {
   List<Grocery>? groceryData;
   List<Grocery>? get getAllRecipe => groceryData;
 
-  void load() async {
-    groceryData = await GroceriesService.getAllRecipeGroceries();
+  void load(int recipeId) async {
+    groceryData = await GroceriesService.getAllRecipeGroceries(recipeId);
 
     notifyListeners();
   }
