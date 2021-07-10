@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:recipe_app/constants.dart';
-import 'package:recipe_app/screens/add_recipe_screens/add_recipe_screen.dart';
+import 'package:recipe_app/screens/recipe_screens/add_recipe_screen.dart';
 import 'package:recipe_app/screens/home/components/body.dart';
 import 'package:recipe_app/screens/profile/prrofile_screen.dart';
 import 'package:recipe_app/size_config.dart';
