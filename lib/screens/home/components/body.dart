@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe_app/models/Recipe.dart';
+import 'package:recipe_app/screens/recipe_screens/recipe_screens.dart';
 import 'package:recipe_app/size_config.dart';
 import 'package:recipe_app/provider/recipe/recipe_provider.dart';
 
@@ -20,7 +21,6 @@ class _BodyState extends State<Body> {
       Provider.of<RecipeProvider>(context, listen: false).load();
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,6 @@ class _BodyState extends State<Body> {
                       ),
                       itemBuilder: (context, index) => RecipeCard(
                         recipe: recipes[index],
-                        press: () {},
                       ),
                     );
                   }

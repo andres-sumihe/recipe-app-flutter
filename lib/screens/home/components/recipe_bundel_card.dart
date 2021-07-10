@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:recipe_app/models/Recipe.dart';
+import 'package:recipe_app/screens/recipe_screens/recipe_screens.dart';
 import 'dart:math';
 import '../../../size_config.dart';
 
@@ -9,7 +10,7 @@ class RecipeCard extends StatelessWidget {
   final Function? press;
 
   const RecipeCard({Key? key, this.recipe, this.press}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     Random random = new Random();
@@ -17,7 +18,16 @@ class RecipeCard extends StatelessWidget {
     double defaultSize = SizeConfig.defaultSize!;
     // Now we dont this Aspect ratio
     return GestureDetector(
-      onTap: press!(),
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return RecipeScreen(
+              recipe: recipe!,
+            );
+          },
+        ),
+      ),
       child: Container(
         decoration: BoxDecoration(
           color: colors[random.nextInt(3)],
@@ -68,8 +78,9 @@ class RecipeCard extends StatelessWidget {
             AspectRatio(
               aspectRatio: 0.71,
               child: Image.asset(
-                recipe!.recipePictureUrl != '' 
-                ? recipe!.recipePictureUrl : 'assets/images/best_2020@2x.png' ,
+                recipe!.recipePictureUrl != ''
+                    ? recipe!.recipePictureUrl
+                    : 'assets/images/best_2020@2x.png',
                 fit: BoxFit.cover,
                 alignment: Alignment.centerLeft,
               ),
